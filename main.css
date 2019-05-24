@@ -1,6 +1,6 @@
 body {
-	background: black;
 	font-family: arial;
+	background-image: url("http://i.imgur.com/Lek9CgP.jpg");
 }
 
 h1,h2,li {
@@ -11,8 +11,8 @@ a {
 	color: green;
 }
 
-p {
-	background:#666;
-	color:white;
+b {
+	background: red;
+	color:black;
 	padding:10px;
 }
