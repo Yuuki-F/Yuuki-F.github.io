@@ -2,13 +2,53 @@
 
 <head>
 	<title> Kviz, prvo pitanje </title>
+	<style> 
+	body {
+	font-family: arial;
+	background-image: url("https://img.freepik.com/free-photo/smooth-dark-blue-with-black-vignette-studio-well-use-as-background-business-report-digital-website-template_1258-748.jpg?size=626&ext=jpg");
+}
 
+h1,h2,li {
+	color: green;
+}
+
+a {
+	color: white;
+}
+
+b {
+	color:red;
+	padding:10px;
+} </style>
 
 </head>
 
-<b> Dobrodosli na kviz!
+<h1> Dobrodosli na kviz! </h1>
+
+<h2><p> U ovom kvizu ce te odgovarati na pitanja, logicno. </p> </h2>
+
+<i> radili : Ismail Dzafic, Eldar Hodzic, Benjamin Kahriman & Amila Imamovic </i>
+<br> <br> <br>
+<b> Prvo Pitanje :  </b>
+<br>
+<br>
+<img src="http://www.pngmart.com/files/7/RAM-PNG-Clipart.png">
+<br> <br>
+<b> Sta je ovo? </b>
+
+<script>
+	function clickCor(event) {
+		alert("Tacno!")
+		var m = '<a href="page1.html"> </a>';
+		document.write(m);
+	}
+	function clickWor(event) {
+		alert("Netacno.")
+	}
+</script>
 
 
+<button onclick="clickCor()"> RAM </button>  <button onclick="clickWor()"> PROCESSOR </button>  <button onclick="clickWor()"> GRAFICKA </button>
 
 
 
