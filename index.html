@@ -3,7 +3,23 @@
 <style>
     body {background-color:black;}
     h1 {color:white;}
+    .btn { 
+        cursor: pointer; 
+        border: 1px solid #3498db; 
+        background-color: transparent; 
+        height: 50px; 
+        width: 200px; 
+        color: #3498db; 
+        font-size: 1.5em; 
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
+    } 
 </style>
-<h1>yes</h1>
+<script>
+	function change1() 
+	{
+		document.getElementById("first").classList.add('btn')
+	}
+</script>
+<button id="first" onClick="change1"> hello av </button>
 
 </html>
