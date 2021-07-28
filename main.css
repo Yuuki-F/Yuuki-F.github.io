@@ -1,8 +1,8 @@
 :root {
   --green: #00FF00;
   --white: #ffffff;
-  --black: #000000;
-  --aquamarine: #7FFFD4;
+  --black: #272727;
+  --aquamarine: #ffffff;
 }
 
 * {
@@ -54,5 +54,5 @@ li {
   font-family: helvetica;
 }
 .btn:hover {
-  border: 4px solid green;
+  border: 4px solid rgb(39, 99, 139);
 }
