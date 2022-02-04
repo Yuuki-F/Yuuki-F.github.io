@@ -1,0 +1,55 @@
+
+
+html {
+    font-family: monospace;   
+    background: transparent;
+    background-image: url('https://i.imgur.com/l4reRqM.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #2c01ff7e;
+    scroll-behavior:smooth
+}
+p {
+    color:white;
+    font-size: 16px;
+    padding-left: 10%;
+    padding-right:10%;
+}
+/* Add a black background color to the top navigation */
+.MainText {
+    text-align: center;
+    color:rgb(255,255,255);
+}
+.topnav {
+    background-color: #ffffff8a;
+    overflow: hidden;
+    text-align:center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    width:21%;
+    float:left;
+    color: black;
+    text-align: center;
+    display:block;
+    padding: 12px 2%;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color:#140352 ;
+    color: rgb(255,255,255);
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #140352;
+    color: white;
+  }
