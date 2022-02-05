@@ -49,7 +49,6 @@ p {
     border:3px black;
     text-align: center;
 }
-/* Add a black background color to the top navigation */
 .MainText {
     text-align: center;
     color:rgb(255,255,255);
@@ -67,7 +66,6 @@ p {
   margin-top:-15px;
   }
   
-  /* Style the links inside the navigation bar */
   .topnav a {
     width:21%;
     float:left;
@@ -79,13 +77,11 @@ p {
     font-size: 17px;
   }
   
-  /* Change the color of links on hover */
   .topnav a:hover {
     background-color:#1a1a1a ;
     color: rgb(255,255,255);
   }
   
-  /* Add a color to the active/current link */
   .topnav a.active {
     background-color: #5f5f5f;
     color: white;
