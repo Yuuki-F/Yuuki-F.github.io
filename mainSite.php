@@ -1,6 +1,7 @@
 <?php
-$Temp=$_POST["temperature"];
-$Humidity=$_POST["humidity"];
-$Write="<p>Temperature: " . $TEMP . " Celsius </p>". "<p>Humidity: ". $Humidity . " % </p>";
-file_put_contents('site.html',$Write);
+$time = time();
+$tempF = $_POST["temp"];
+$file = 'index.html';
+$data = $time."  -  ".$tempF;
+file_put_contents($file, $data);
 ?>
