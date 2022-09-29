@@ -10,7 +10,63 @@ body {
     background-size: 400% 400%;
     background-attachment: fixed;
 }
-
+h1 {
+    text-align:center;
+    color:white;
+    font-size:80px;
+    font-family: 'Press Start 2P', cursive;
+}
+h2 {
+    font-size:40px;
+    text-align:center;
+    color:rgb(255, 255, 255);
+    font-family: 'Press Start 2P', cursive; 
+}
+h3 {
+    font: size 30px;
+    text-align:center;
+    color:lightblue;
+    font-family: 'Press Start 2P', cursive; 
+}
+h4 {
+    font: size 35px;
+    text-align:center;
+    color:rgb(100,100,255);
+    font-family: 'Press Start 2P', cursive; 
+}
+.introduction {
+    border: 2px groove;
+}
+.videocontainer {
+    height: 400px;
+    width: 600px;
+    padding-top:50px;
+    object-fit: cover;
+    z-index: -100;
+    display: block;
+    margin: 0 auto;
+    
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  img {
+    max-width: 100%
+  }
+  .image {
+    order: 2;
+  }
+  .text {
+    color: #CD5C5C;
+    padding-left: 20px;
+    font: italic 10px "Fira Sans", serif;
+    text-align:center;
+  }
+  a {
+    color: #FFFFFF;
+  }
 @keyframes gradient {
     0% {
         background-position: 0% 0%;
@@ -71,16 +127,4 @@ body {
     }
 }
 
-h1 {
-    text-align:center;
-    color:black;
-    font-size:50px;
-    font-family: 'Press Start 2P', cursive;
-}
-h2 {
-    font-size:30px;
-    text-align:center;
-    color:rgb(255, 255, 255);
-    font-family: 'Press Start 2P', cursive; 
-}
 
