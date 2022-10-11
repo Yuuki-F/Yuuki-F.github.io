@@ -3,6 +3,14 @@
 /* Please ❤ this if you like it! */
 
 
+var options = {
+    strings: ['<i>Software</i> Engineer.', '&amp; Full-Stack Scripter.', '&amp; Lua','&amp; JavaScript','&amp; C++','&amp; Python',],
+    typeSpeed: 40,
+    loop:true,
+  };
+
+  var typed = new Typed('.element', options);
+
 (function($) { "use strict";
  
  	//Parallax            
@@ -111,3 +119,16 @@ $(document).ready(function() {
   });            
               
 })(jQuery); 
+
+function handleTyping () {
+    $(".element").typed({
+      strings: ["a Software Engineer", "a family guy", "a bacon addicted"],
+      typeSpeed: 50,
+      starDelay: 200,
+      backDelay: 600,
+      loop: true,
+      showCursor: true,
+      cursorChar: "|"
+    });
+  }
+  
