@@ -268,7 +268,7 @@
      position: absolute;
      top:80% ;
      height: auto;
-     width: calc(100% - 34px);
+     width: calc(100% - 33px);
      max-width: 950px;
      left:25%;
      text-align: center;
