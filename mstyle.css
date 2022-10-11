@@ -405,9 +405,7 @@
    .scroll-to-top{
      right: 13px;
    } 
-   .case-study-images li .case-study-title{
-     left: 13px;
-   }
+   
  }
  
  @media (max-width: 991px) { 
