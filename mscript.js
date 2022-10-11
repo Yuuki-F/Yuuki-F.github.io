@@ -1,7 +1,5 @@
 
 
-/* Please ❤ this if you like it! */
-
 
 var options = {
     strings: ['<i>Software</i> Engineer.', '&amp; Full-Stack Scripter.', '&amp; Lua','&amp; JavaScript','&amp; C++','&amp; Python',],
@@ -35,7 +33,6 @@ var options = {
 	  }
 	scrollBanner();	              
 
-	//Page cursors
 
     document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
         t.style.left = n.clientX + "px", 
@@ -63,8 +60,7 @@ var options = {
     }              
               
   
-//Scroll back to top
-              
+     
 $(document).ready(function() {	
 		var offset = 300;
 		var duration = 400;
@@ -82,8 +78,7 @@ $(document).ready(function() {
 		})
   
   		
-		/* Hero Case study images */			
-		
+
 		$('.case-study-name:nth-child(1)').on('mouseenter', function() {
 			$('.case-study-name.active').removeClass('active');
 			$('.case-study-images li.show').removeClass("show");
@@ -120,15 +115,3 @@ $(document).ready(function() {
               
 })(jQuery); 
 
-function handleTyping () {
-    $(".element").typed({
-      strings: ["a Software Engineer", "a family guy", "a bacon addicted"],
-      typeSpeed: 50,
-      starDelay: 200,
-      backDelay: 600,
-      loop: true,
-      showCursor: true,
-      cursorChar: "|"
-    });
-  }
-  
