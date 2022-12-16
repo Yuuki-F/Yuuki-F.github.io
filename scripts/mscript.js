@@ -151,7 +151,7 @@ function clicked() {
     }
     document.getElementById("potatoneeded").innerHTML="Next Level: " + levelRequirement;
 }
-  document.getElementById(" total").innerHTML = "Potatoes: " + addcomma(money);
+  document.getElementById("total").innerHTML = "Potatoes: " + addcomma(money);
   document.getElementById("onpotato").innerHTML="Current Level: " +  levelTexts[level];
   document.getElementById("round").src=upgrades[level];
 }
