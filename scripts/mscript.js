@@ -148,6 +148,7 @@ function clicked() {
     } else { document.body.style.backgroundColor="white";}
     if (level>=9){
         levelRequirement="9999999999999999999";
+        alert("idi ilmin site za continuation");
     }
     document.getElementById("potatoneeded").innerHTML="Next Level: " + levelRequirement;
 }
