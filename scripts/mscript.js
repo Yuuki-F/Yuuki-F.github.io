@@ -142,11 +142,11 @@ function clicked() {
   money += moneyup;
   if (money>=levelRequirement) {
     level++;  
-    levelRequirement=Math.round(levelRequirement*1.5);
+    levelRequirement=Math.round(levelRequirement*2.5);
     
     if (level==7){
         document.body.style.backgroundColor="black"; 
-    }
+    } else { document.body.style.backgroundColor="white";}
     if (level>=9){
         levelRequirement="9999999999999999999";
     }
