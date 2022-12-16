@@ -136,8 +136,7 @@ function myTimer() {
 }
 setInterval(myTimer, 1000);
 
-//what happens when button is clicked
-
+// sta se desi kada klik bam bam
 function clicked() {
   money += moneyup;
   if (money>=levelRequirement) {
@@ -152,11 +151,11 @@ function clicked() {
     }
     document.getElementById("potatoneeded").innerHTML="Next Level: " + levelRequirement;
 }
-  document.getElementById("total").innerHTML = "Potatoes: " + addcomma(money);
+  document.getElementById(" total").innerHTML = "Potatoes: " + addcomma(money);
   document.getElementById("onpotato").innerHTML="Current Level: " +  levelTexts[level];
   document.getElementById("round").src=upgrades[level];
 }
-//upgrade function
+//upgrade fmnkcitjgiaj funkcija
 function upgrade(name) {
   if (name == "servant_farmer") {
     if (money >= catcost && catown < 50) {
