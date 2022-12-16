@@ -39,7 +39,7 @@ const upgrades=[
     "https://i.imgur.com/CN48ufy.png", // final potato
 ];
 
-//save before exiting
+//save pre exit
 function closingCode() {
   if (confirm("You have closed the window, would you like to save?") === true) {
     save();
@@ -50,7 +50,7 @@ function closingCode() {
 function addcomma(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
-//updates all values
+// kul update
 function reloadall() {
   document.getElementById("click").innerHTML =
     "LB/click: " + addcomma(moneyup) + " | LB/sec: " + addcomma(msec);
@@ -62,7 +62,7 @@ function reloadall() {
   document.getElementById("upgrade").innerHTML =
     addcomma(upown) + "-main upgrade: " + addcomma(upcost);
 }
-//overwrites save file
+// over write kurrent save file 
 function save() {
   localStorage.setItem("money", money);
   localStorage.setItem("moneyup", moneyup);
@@ -82,7 +82,7 @@ function save() {
   localStorage.setItem("catmax", catmax);
   localStorage.setItem("workmax", workmax);
 }
-//loads save file
+// load stari save file koji je na local storage
 function load() {
   money = parseInt(localStorage.getItem("money"));
   moneyup = parseInt(localStorage.getItem("moneyup"));
@@ -104,9 +104,9 @@ function load() {
 
   reloadall();
 }
-//resets all values
+// reset sve valueueue
 function reset() {
-  if (confirm("Are you sure you want to reset?") === true) {
+  if (confirm("da li ste siguran gospodine?") === true) {
     money = 0;
     moneyup = 1;
     msec = 0;
