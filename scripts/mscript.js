@@ -1,5 +1,4 @@
-// projekat od davnih vremena 
-//idemo sa objasnjenjem
+
 let settings = {
   spotlightRadius: 400,
   boxCount: 50,
@@ -17,7 +16,7 @@ function state(s){
     });
     wrapper.addEventListener('mousedown',() => {
       app.universe.speed = settings.turboSpeed;
-      
+      window.open("https://www.instagram.com/eldarfnd/","_blank")
      
     });
     wrapper.addEventListener('mouseup',()=>{
@@ -222,7 +221,7 @@ class Box {
       let dy = this.corners[i].y - light.position.y;
       let dist = Math.sqrt(dx*dx+dy*dy);
 
-      let x = light.position.x + dx * settings.spotlightRadius / dist * 20;  
+      let x = light.position.x + dx * settings.spotlightRadius / dist * 20;  // 20 times the distance of our light radius
       let y = light.position.y + dy * settings.spotlightRadius / dist * 20; 
 
       this.shadowCorners.push({x:x,y:y});
