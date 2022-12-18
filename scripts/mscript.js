@@ -1,272 +1,254 @@
-money = 0;
-moneyup = 1;
-msec = 0;
-upcost = 15;
-catcost = 25;
-workercost = 250;
-upown = 0;
-catown = 0;
-workerown = 0;
-catadd = 1;
-workadd = 15;
-cboost = 1;
-wboost = 1;
-catmax = 0;
-workmax = 0;
-level = 0
-const levelTexts=[
-    "Soil", //0
-    "Potato Seed", //1
-    "Cartoon Potato?", //2
-    "Potato", //3
-    "Potato Gang", //4
-    "Strongman Potato", //5
-    "Potato Boss", //6
-    "...?", //7
-    "Awakened Potato Boss", //8
-    "Potato Lord?", //9
-]
-const upgrades=[
-    "https://i.imgur.com/NTrBlLy.png", // soil
-    "https://i.imgur.com/PYnJSej.png", // seed
-    "https://i.imgur.com/CLiv6JV.png", // cartoon potato
-    "https://i.imgur.com/ZxIroPD.png", // real potato
-    "https://i.imgur.com/0rgcya4.png", // potato gang
-    "https://i.imgur.com/DX9oWlX.png", // buff potato
-    "https://i.imgur.com/Bt9hKbT.png", // potato mob boss
-    "https://i.imgur.com/ezcpJjO.jpg", // nesto misteriozno se pojavi...
-    "https://i.imgur.com/GE5W78L.png", // awakened mob boss
-    "https://i.imgur.com/CN48ufy.png", // final potato
-];
-
-//save pre exit
-function closingCode() {
-  if (confirm("You have closed the window, would you like to save?") === true) {
-    save();
-    return null;
-  }
+// projekat od davnih vremena 
+//idemo sa objasnjenjem
+let settings = {
+  spotlightRadius: 400,
+  boxCount: 50,
+  moveSpeed: 1,
+  turboSpeed: 5,
 }
 
-function addcomma(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
-// kul update
-function reloadall() {
-  document.getElementById("click").innerHTML =
-    "LB/click: " + addcomma(moneyup) + " | LB/sec: " + addcomma(msec);
-  document.getElementById("total").innerHTML = "LB: " + addcomma(money);
-  document.getElementById("servant_farmer").innerHTML =
-    catown + "-servant farmer: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/sec";
-  document.getElementById("worker").innerHTML =
-    workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/sec";
-  document.getElementById("upgrade").innerHTML =
-    addcomma(upown) + "-main upgrade: " + addcomma(upcost);
-}
-// over write kurrent save file 
-function save() {
-  localStorage.setItem("money", money);
-  localStorage.setItem("moneyup", moneyup);
-  localStorage.setItem("msec", msec);
-  localStorage.setItem("upcost", upcost);
-  localStorage.setItem("catcost", catcost);
-  localStorage.setItem("catadd", catadd);
-  localStorage.setItem("workercost", workercost);
-  localStorage.setItem("workadd", workadd);
-  localStorage.setItem("catown", catown);
-  localStorage.setItem("workerown", workerown);
-  localStorage.setItem("upown", upown);
-  localStorage.setItem("catadd", catadd);
-  localStorage.setItem("workadd", workadd);
-  localStorage.setItem("cboost", cboost);
-  localStorage.setItem("wboost", wboost);
-  localStorage.setItem("catmax", catmax);
-  localStorage.setItem("workmax", workmax);
-}
-// load stari save file koji je na local storage
-function load() {
-  money = parseInt(localStorage.getItem("money"));
-  moneyup = parseInt(localStorage.getItem("moneyup"));
-  msec = parseInt(localStorage.getItem("msec"));
-  upcost = parseInt(localStorage.getItem("upcost"));
-  catcost = parseInt(localStorage.getItem("catcost"));
-  upown = parseInt(localStorage.getItem("catadd"));
-  workercost = parseInt(localStorage.getItem("workercost"));
-  upown = parseInt(localStorage.getItem("workadd"));
-  catown = parseInt(localStorage.getItem("catown"));
-  workerown = parseInt(localStorage.getItem("workerown"));
-  upown = parseInt(localStorage.getItem("upown"));
-  catadd = parseInt(localStorage.getItem("catadd"));
-  workadd = parseInt(localStorage.getItem("workadd"));
-  cboost = parseInt(localStorage.getItem("cboost"));
-  wboost = parseInt(localStorage.getItem("wboost"));
-  catmax = parseInt(localStorage.getItem("catmax"));
-  workmax = parseInt(localStorage.getItem("workmax"));
-
-  reloadall();
-}
-// reset sve valueueue
-function reset() {
-  if (confirm("da li ste siguran gospodine?") === true) {
-    money = 0;
-    moneyup = 1;
-    msec = 0;
-    upcost = 15;
-    catcost = 25;
-    workercost = 250;
-    catown = 0;
-    workerown = 0;
-    upown = 0;
-    catadd = 1;
-    workadd = 15;
-    reloadall();
-  }
-}
-levelRequirement=100;
-//timer
-function myTimer() {
-    money += msec;
-    if (money>=levelRequirement) {
-        level++;  
-        levelRequirement=Math.round(levelRequirement*1.35);
-        document.getElementById("potatoneeded").innerHTML="Next Level: " + levelRequirement;
-    }
-  document.getElementById("total").innerHTML = "Potatoes: " + addcomma(money);
-  document.getElementById("onpotato").innerHTML="Current Level: " +  levelTexts[level];
-  document.getElementById("round").src=upgrades[level];
-}
-setInterval(myTimer, 1000);
-
-// sta se desi kada klik bam bam
-function clicked() {
-  money += moneyup;
-  if (money>=levelRequirement) {
-    level++;  
-    levelRequirement=Math.round(levelRequirement*2.5);
-    
-    if (level==7){
-        document.body.style.backgroundColor="black"; 
-    } else { document.body.style.backgroundColor="white";}
-    
-    document.getElementById("potatoneeded").innerHTML="Next Level: " + levelRequirement;
-}
-  document.getElementById("total").innerHTML = "Potatoes: " + addcomma(money);
-  document.getElementById("onpotato").innerHTML="Current Level: " +  levelTexts[level];
-  document.getElementById("round").src=upgrades[level];
-  if (level>=9){
-    levelRequirement="9999999999999999999";
-    alert("idi ilmin site za continuation");
-}
-}
-//upgrade fmnkcitjgiaj funkcija
-function upgrade(name) {
-  if (name == "servant_farmer") {
-    if (money >= catcost && catown < 50) {
+function state(s){
+  if (s==="init"){
+    const app = new Application;
+    let wrapper = document.querySelector('#game-wrapper');
+    wrapper.addEventListener('mousemove',function(e){
+      app.universe.light.position.x = e.clientX*window.devicePixelRatio;
+      app.universe.light.position.y = e.clientY*window.devicePixelRatio;
+    });
+    wrapper.addEventListener('mousedown',() => {
+      app.universe.speed = settings.turboSpeed;
       
-      if (catown <= 13) {
-        msec += catadd;
-        catadd++;
-        cboost = 1;
-      } else if (catown == 14) {
-        msec += catadd;
-        catadd++;
-        cboost = 200;
-      } else if (catown <= 23) {
-        msec += 200 * catadd;
-        catadd++;
-        cboost = 200;
-      } else if (catown == 24) {
-        msec += 200 * catadd;
-        catadd++;
-        cboost = 5000;
-      } else if (catown <= 48) {
-        msec += 5000 * catadd;
-        catadd++;
-        cboost = 5000;
-      } else if (catown == 49) {
-        msec += 5000 * catadd;
-        catadd++;
-        cboost = 15000;
-      } else {
-        msec += 15000 * catadd;
-        catadd++;
-        cboost = 15000;
+     
+    });
+    wrapper.addEventListener('mouseup',()=>{
+      app.universe.speed = settings.moveSpeed;
+    });
+  }
+}
+
+class Application {
+  constructor(){
+    this.width = null;
+    this.height = null;
+
+    let wrapper = document.querySelector('#game-wrapper');
+    this.canvas = document.createElement('canvas');
+    wrapper.appendChild(this.canvas);
+    this.context = this.canvas.getContext('2d');
+
+    this.canvasOverlay = document.createElement('canvas');
+    wrapper.appendChild(this.canvasOverlay);
+    this.contextOverlay = this.canvasOverlay.getContext('2d');
+
+    this.resize();
+    window.addEventListener('resize', () => this.resize(), false);
+
+    this.universe = new Universe(this.width,this.height);
+
+    this.render();
+  }
+
+  render(){
+    this.context.clearRect(0,0,this.width*window.devicePixelRatio,this.height*window.devicePixelRatio);
+
+    let gradient=this.context.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,0.9*settings.spotlightRadius,this.universe.light.position.x,this.universe.light.position.y,0);
+    gradient.addColorStop(0,"#202062");
+    gradient.addColorStop(1,"#988280");
+
+    this.context.fillStyle = gradient;
+    this.context.fillRect(0,0,this.width,this.height);
+    let boxes = this.universe.boxArray;
+    for (var i=0; i<boxes.length;i++){
+      let box = boxes[i];
+
+      this.context.fillStyle = box.color;
+      this.context.strokeStyle = box.color;
+      for (let i = 0;i<box.shadowCorners.length;i++){
+        let j = (i<box.shadowCorners.length-1) ? i+1:0
+
+        this.context.beginPath();
+        this.context.moveTo(box.corners[i].x,box.corners[i].y);
+        this.context.lineTo(box.shadowCorners[i].x,box.shadowCorners[i].y);
+        this.context.lineTo(box.shadowCorners[j].x,box.shadowCorners[j].y);
+        this.context.lineTo(box.corners[j].x,box.corners[j].y);
+
+        this.context.closePath();
+        this.context.stroke();
+        this.context.fill();
       }
-      catown += 1;
-      money -= catcost;
-      catcost = catcost * 2;
-      document.getElementById("servant_farmer").innerHTML =
-        catown + "-servant farmer: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
-    } else if (catown == 5) {
-      document.getElementById("servant_farmer").innerHTML =
-        catown + "-servant farmer: MAX | +15% click/sec";
+
+      this.context.beginPath();
+      this.context.moveTo(box.corners[0].x,box.corners[0].y);
+      for (let i = 1;i<box.sides;i++){
+        this.context.lineTo(box.corners[i].x,box.corners[i].y);
+      }
+      this.context.closePath();
+      this.context.fill();
+      this.context.stroke();
+    }
+
+    this.context.beginPath();
+    this.context.arc(this.universe.light.position.x,this.universe.light.position.y,2,0,2*Math.PI);
+    this.context.stroke();
+
+    this.contextOverlay.clearRect(0,0,this.width*window.devicePixelRatio,this.height*window.devicePixelRatio);
+
+    gradient=this.contextOverlay.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,settings.spotlightRadius,this.universe.light.position.x,this.universe.light.position.y,0);
+    gradient.addColorStop(0,"#0a0e23");
+    gradient.addColorStop(0.5,"transparent");
+
+    this.contextOverlay.fillStyle = gradient;
+    this.contextOverlay.fillRect(0,0,this.width,this.height);
+
+    this.update();
+
+    window.requestAnimationFrame(()=>this.render());
+  }
+
+  update(){
+    this.universe.update(this.center);
+  }
+
+  resize(){
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+
+    document.querySelector('#game-wrapper').style.width = this.width+'px';
+    document.querySelector('#game-wrapper').style.height = this.height+'px';
+
+    this.width *= window.devicePixelRatio;
+    this.height *= window.devicePixelRatio;
+
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+    this.canvasOverlay.width = this.width;
+    this.canvasOverlay.height = this.height;
+
+    if (this.universe) this.universe.generateBoxes();
+
+    this.context.globalCompositeOperation = 'screen';
+
+    this.center = {
+      x: this.width/2,
+      y: this.height/2
+    }
+  }
+}
+
+class Universe{
+  constructor(width,height){
+    this.width = width;
+    this.height = height;
+    this.speed = settings.moveSpeed;
+
+    this.boxArray = [];
+
+    this.generateBoxes();
+
+    this.light = new Light(width*.75,height*.35);
+  }
+
+  generateBoxes(){
+    this.boxArray = [];
+    for (let i=0;i<settings.boxCount;i++){
+      let box = new Box(this.width, this.height);
+      this.boxArray.push(box);
     }
   }
 
-  if (name == "worker") {
-    if (money >= workercost && workerown < 50) {
-      
-      if (workerown <= 13) {
-        msec += workadd;
-        workadd++;
-        wboost = 1;
-      } else if (workerown == 14) {
-        msec += workadd;
-        workadd++;
-        wboost = 200;
-      } else if (workerown <= 23) {
-        msec += 200 * workadd;
-        workadd++;
-        wboost = 200;
-      } else if (workerown == 24) {
-        msec += 200 * workadd;
-        workadd++;
-        wboost = 5000;
-      } else if (workerown <= 48) {
-        msec += 5000 * workadd;
-        workadd++;
-        wboost = 5000;
-      } else if (workerown == 49) {
-        msec += 5000 * workadd;
-        workadd++;
-        wboost = 15000;
-      } else {
-        msec += 15000 * workadd;
-        workadd++;
-        wboost = 15000;
-      }
-      workerown += 1;
-      money -= workercost;
-      workercost = workercost * 3;
-      document.getElementById("worker").innerHTML = 
-        workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
-    } else if (workerown == 5) {
-      document.getElementById("worker").innerHTML =
-        workerown + "-high class servant: MAX | +35% click/sec";
+  update(centerPixel){
+    let dx = (centerPixel.x - this.light.position.x)/100;
+    let dy = (centerPixel.y - this.light.position.y)/100;
+
+    Array.prototype.forEach.call(this.boxArray, (box)=>{
+      box.update(centerPixel,dx*this.speed,dy*this.speed,this.light);
+    });
+  }
+}
+
+class Box {
+  constructor(width,height){
+    this.position = {
+      x: Math.random()*width,
+      y: Math.random()*height,
+    }
+    this.radius = Math.random()*30;
+    this.rotation = Math.random();
+    this.rotationSpeed = (Math.random()-0.5)/100;
+    this.sides = Math.floor(Math.random()*6+3);
+    this.color = this.getRandomColor();
+
+    this.corners = [];
+    this.getCornerLocations();
+    this.shadowCorners = this.corners;
+  }
+
+  update(centerPixel,dx,dy,light){
+    this.position.x += dx;
+    this.position.y += dy;
+
+    if (this.position.x<-this.radius){
+      this.position.x+=centerPixel.x*2+this.radius*2;
+    } else if (this.position.x>centerPixel.x*2+this.radius){
+      this.position.x -= centerPixel.x*2+this.radius*2;
+    }
+    if (this.position.y<0-this.radius){
+      this.position.y+=centerPixel.y*2+this.radius*2;
+    } else if (this.position.y>centerPixel.y*2+this.radius){
+      this.position.y-=centerPixel.y*2+this.radius*2;
+    }
+
+    this.rotation += this.rotationSpeed;
+
+    this.corners = [];
+    this.shadowCorners = [];
+
+    this.getCornerLocations();
+    this.getShadowCorners(light);
+  }
+
+  getCornerLocations(){   
+    let internalAngle = Math.PI*2/this.sides;
+    for (var i=0;i<this.sides;i++){
+      let x = this.position.x + this.radius*Math.sin(this.rotation+i*internalAngle);
+      let y = this.position.y + this.radius*Math.cos(this.rotation+i*internalAngle);
+      this.corners.push({x:x,y:y});
     }
   }
 
-  if (name == "upgrade") {
-    if (money >= upcost) {
-      moneyup += upcost / 15;
-      money -= upcost;
-      upown += 1;
-      upcost = upcost * 5;
-      document.getElementById("upgrade").innerHTML =
-        addcomma(upown) + "-extra potato: " + addcomma(upcost);
-      if (catown == 50) {
-        msec -= catmax;
-        catmax = Math.floor(moneyup * 0.15);
-        msec += catmax;
-      }
-      if (workerown == 50) {
-        msec -= workmax;
-        workmax = Math.floor(moneyup * 0.35);
-        msec += workmax;
-      }
+  getShadowCorners(light){
+    for (var i=0;i<this.sides;i++){
+      let dx = this.corners[i].x - light.position.x;
+      let dy = this.corners[i].y - light.position.y;
+      let dist = Math.sqrt(dx*dx+dy*dy);
+
+      let x = light.position.x + dx * settings.spotlightRadius / dist * 20;  
+      let y = light.position.y + dy * settings.spotlightRadius / dist * 20; 
+
+      this.shadowCorners.push({x:x,y:y});
     }
   }
 
-  document.getElementById("click").innerHTML =
-    "Potatoes/click: " + addcomma(moneyup) + " | Potatoes/sec: " + addcomma(msec);
-  document.getElementById("total").innerHTML = "Potatoes: " + addcomma(money);
+  getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++ ) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+}
+
+class Light {
+  constructor(x,y){
+    this.position = {
+      x: x,
+      y: y,
+    }
+  }
+}
+
+window.onload = function() {
+  state("init");
+  // followMe("init");
 }
