@@ -24,7 +24,7 @@ const levelTexts=[
     "Potato Boss", //6
     "...?", //7
     "Awakened Potato Boss", //8
-    "Ilma's Potato?", //9
+    "Potato Lord?", //9
 ]
 const upgrades=[
     "https://i.imgur.com/NTrBlLy.png", // soil
@@ -146,15 +146,16 @@ function clicked() {
     if (level==7){
         document.body.style.backgroundColor="black"; 
     } else { document.body.style.backgroundColor="white";}
-    if (level>=9){
-        levelRequirement="9999999999999999999";
-        alert("idi ilmin site za continuation");
-    }
+    
     document.getElementById("potatoneeded").innerHTML="Next Level: " + levelRequirement;
 }
   document.getElementById("total").innerHTML = "Potatoes: " + addcomma(money);
   document.getElementById("onpotato").innerHTML="Current Level: " +  levelTexts[level];
   document.getElementById("round").src=upgrades[level];
+  if (level>=9){
+    levelRequirement="9999999999999999999";
+    alert("idi ilmin site za continuation");
+}
 }
 //upgrade fmnkcitjgiaj funkcija
 function upgrade(name) {
