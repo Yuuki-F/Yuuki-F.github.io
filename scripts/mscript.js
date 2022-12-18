@@ -51,8 +51,8 @@ class Application {
     this.context.clearRect(0,0,this.width*window.devicePixelRatio,this.height*window.devicePixelRatio);
 
     let gradient=this.context.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,0.9*settings.spotlightRadius,this.universe.light.position.x,this.universe.light.position.y,0);
-    gradient.addColorStop(0,"#202062");
-    gradient.addColorStop(1,"#988280");
+    gradient.addColorStop(0,"#f2f0f0");
+    gradient.addColorStop(1,"#000000");
 
     this.context.fillStyle = gradient;
     this.context.fillRect(0,0,this.width,this.height);
@@ -93,7 +93,7 @@ class Application {
     this.contextOverlay.clearRect(0,0,this.width*window.devicePixelRatio,this.height*window.devicePixelRatio);
 
     gradient=this.contextOverlay.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,settings.spotlightRadius,this.universe.light.position.x,this.universe.light.position.y,0);
-    gradient.addColorStop(0,"#0a0e23");
+    gradient.addColorStop(0,"#000000");
     gradient.addColorStop(0.5,"transparent");
 
     this.contextOverlay.fillStyle = gradient;
