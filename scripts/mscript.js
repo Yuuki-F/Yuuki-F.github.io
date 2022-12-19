@@ -1,9 +1,8 @@
 
-let settings = {
-  spotlightRadius: 400,
-  boxCount: 50,
+let postavke = {
+  vecinaSpotlight: 400,
+  kutije: 50,
   moveSpeed: 1,
-  turboSpeed: 5,
 }
 
 function state(s){
@@ -14,13 +13,13 @@ function state(s){
       app.universe.light.position.x = e.clientX*window.devicePixelRatio;
       app.universe.light.position.y = e.clientY*window.devicePixelRatio;
     });
-    wrapper.addEventListener('mousedown',() => {
-      app.universe.speed = settings.turboSpeed;
-      window.open("https://www.instagram.com/eldarfnd/","_blank")
+    wrapper.addEventListener('mousedown',(ev) => {
+      if (ev.which==3){window.open("https://www.instagram.com/eldarfnd/","_blank")}
+      
      
     });
     wrapper.addEventListener('mouseup',()=>{
-      app.universe.speed = settings.moveSpeed;
+      app.universe.speed = postavke.moveSpeed;
     });
   }
 }
@@ -50,7 +49,7 @@ class Application {
   render(){
     this.context.clearRect(0,0,this.width*window.devicePixelRatio,this.height*window.devicePixelRatio);
 
-    let gradient=this.context.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,0.9*settings.spotlightRadius,this.universe.light.position.x,this.universe.light.position.y,0);
+    let gradient=this.context.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,0.9*postavke.vecinaSpotlight,this.universe.light.position.x,this.universe.light.position.y,0);
     gradient.addColorStop(0,"#f2f0f0");
     gradient.addColorStop(1,"#000000");
 
@@ -92,7 +91,7 @@ class Application {
 
     this.contextOverlay.clearRect(0,0,this.width*window.devicePixelRatio,this.height*window.devicePixelRatio);
 
-    gradient=this.contextOverlay.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,settings.spotlightRadius,this.universe.light.position.x,this.universe.light.position.y,0);
+    gradient=this.contextOverlay.createRadialGradient(this.universe.light.position.x,this.universe.light.position.y,postavke.vecinaSpotlight,this.universe.light.position.x,this.universe.light.position.y,0);
     gradient.addColorStop(0,"#000000");
     gradient.addColorStop(0.5,"transparent");
 
@@ -138,18 +137,18 @@ class Universe{
   constructor(width,height){
     this.width = width;
     this.height = height;
-    this.speed = settings.moveSpeed;
+    this.speed = postavke.moveSpeed;
 
     this.boxArray = [];
 
     this.generateBoxes();
 
-    this.light = new Light(width*.75,height*.35);
+    this.light = new Svijetlo(width*.75,height*.35);
   }
 
   generateBoxes(){
     this.boxArray = [];
-    for (let i=0;i<settings.boxCount;i++){
+    for (let i=0;i<postavke.kutije;i++){
       let box = new Box(this.width, this.height);
       this.boxArray.push(box);
     }
@@ -221,8 +220,8 @@ class Box {
       let dy = this.corners[i].y - light.position.y;
       let dist = Math.sqrt(dx*dx+dy*dy);
 
-      let x = light.position.x + dx * settings.spotlightRadius / dist * 20;  
-      let y = light.position.y + dy * settings.spotlightRadius / dist * 20; 
+      let x = light.position.x + dx * postavke.vecinaSpotlight / dist * 20;  
+      let y = light.position.y + dy * postavke.vecinaSpotlight / dist * 20; 
 
       this.shadowCorners.push({x:x,y:y});
     }
@@ -238,7 +237,7 @@ class Box {
   }
 }
 
-class Light {
+class Svijetlo {
   constructor(x,y){
     this.position = {
       x: x,
