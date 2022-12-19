@@ -221,7 +221,7 @@ class Box {
       let dy = this.corners[i].y - light.position.y;
       let dist = Math.sqrt(dx*dx+dy*dy);
 
-      let x = light.position.x + dx * settings.spotlightRadius / dist * 20;  // 20 times the distance of our light radius
+      let x = light.position.x + dx * settings.spotlightRadius / dist * 20;  
       let y = light.position.y + dy * settings.spotlightRadius / dist * 20; 
 
       this.shadowCorners.push({x:x,y:y});
