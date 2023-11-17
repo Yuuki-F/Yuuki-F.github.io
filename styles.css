@@ -1,139 +1,51 @@
-html {
-  scroll-behavior: smooth;
+@mixin center(){
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    position: absolute; /* Added position absolute here for context */
 }
-body, h1, h2, p {
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,,800,900);
+
+html{
+  width:100%;
+  height: 100%;
+}
+
+body{
+  background: -webkit-linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255));
+  background: linear-gradient(rgb(41, 41, 41), rgb(0, 0, 0));
   margin: 0;
-
-  padding: 0;
-}
-body {
-  overflow-x: hidden;
-
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto Mono', monospace;
-  background-color: #121212;
-  color: #1ecbe1;
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f6e96d02-fa58-47e4-89c1-c64bb1b038d1/d5wfggl-9758a7ba-5499-48dc-ab42-73a3e3c4a53b.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y2ZTk2ZDAyLWZhNTgtNDdlNC04OWMxLWM2NGJiMWIwMzhkMVwvZDV3ZmdnbC05NzU4YTdiYS01NDk5LTQ4ZGMtYWI0Mi03M2EzZTNjNGE1M2IuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Jh3KpznQLkmRF9Typ3oaDs-LubX-k8erUwtmv_vtx9Y');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-}
-
-header {
-  background-color: #1f1f1f;
-  padding: 10px 20px;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-nav li {
-  float: left;
-}
-
-nav a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  background-color: #575757;
-}
-
-nav a.active {
-  background-color: #1ecbe1;
-}
-
-section {
-  padding: 60px 20px;
-}
-
-h1, h2 {
-  color: #f2a365;
-}
-
-footer {
-  background-color: #1f1f1f;
-  color: #ccc;
-  text-align: center;
-  padding: 10px 20px;
-  position: fixed;
   width: 100%;
-  bottom: 0;
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-  nav li {
-      float: none;
-      width: 100%;
-  }
+.container{
+  @include center(); /* Applying center mixin */
+  width: 80%; /* Define a width */
+  height: 80%; /* Define a height */
 }
 
-/* ...previous CSS... */
+.title{
+  font-weight: 800;
+  color: transparent;
+  font-size:120px;
+  background: url("https://i.pinimg.com/originals/2e/2a/dc/2e2adcfc336e7725319ff35823d022ef.png") repeat;
+  background-position: 40% 50%;
+  -webkit-background-clip: text;
+  position:relative;
+  text-align:center;
+  line-height:90px;
+  letter-spacing: -8px;
+}
 
-h1, h2, p {
+.subtitle{
+  display: block;
   text-align: center;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-#home h1, #home p {
-  animation-name: fadeIn;
-  animation-duration: 2s;
-}
-
-/* ... */
-
-/* ...previous CSS... */
-
-section {
-  margin: 150px 0;
-    padding: 150px;
-    background: rgba(0, 0, 0,0.5);  /* semi-transparent black */
-    color: #fff;
-    text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s;
-}
-
-section.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-.mirror {
-  height: 50px; /* You can adjust as per your design */
-  background: transparent;
-}
-
-#home { background-color: #000000; }
-#about { background-color: #131313; }
-#portfolio { background-color: #1d1d1d; }
-#contact { background-color: #313131; }
-
-
-.button {
-  background-color: #e94560;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #9f406e;
+  text-transform: uppercase;
+  padding-top:10px;
+  color:white;
 }
