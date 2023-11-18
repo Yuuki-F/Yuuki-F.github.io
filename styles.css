@@ -20,7 +20,7 @@ html{
 
 body{
   background: -webkit-linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255));
-  background: linear-gradient(rgb(41, 41, 41), rgb(0, 0, 0));
+  background: linear-gradient(rgb(70, 35, 134), rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0));
   margin: 0;
   width: 100%;
   height: 100%;
@@ -37,7 +37,7 @@ body{
   font-weight: 800;
   color: transparent;
   font-size:120px;
-  background: url("https://www.hdwallpapers.in/download/black__white_minimalist_optical_illusion_4k_hd_abstract-HD.jpg") repeat;
+  background: url("https://4kwallpapers.com/images/wallpapers/illuminated-luxury-white-background-3d-background-sci-fi-1920x1080-7652.jpg") repeat;
   background-position: 40% 50%;
   -webkit-background-clip: text;
   position:relative;
