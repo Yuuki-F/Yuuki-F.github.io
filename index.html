@@ -1,8 +1,270 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splitline</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="styles.css">
-<div class="container">
-    <div class="title">Splitline</div>
-    <div class="subtitle"> WORK IN PROGRESS </div>
-  </div>
-  <script src="script.js"></script>
+    #home { 
+      background: url(images/untitled_blue_lock_game.png) no-repeat center center;
+      background-size: cover;
+      animation: zoomInOut 10s infinite alternate;
+    }
+    #about {
+      background: url(images/demongfx.png) no-repeat center center;
+      background-size: cover;
+      animation: zoomInOut 10s infinite alternate;
+    }
+    #contact {
+      background: url(images/cec3ee31646231a25f6d726cbf4bc5c95b57c875.jpeg) no-repeat center center;
+      background-size: cover;
+      animation: zoomInOut 10s infinite alternate;
+    }
+    #code {
+      background: url(images/whithairguy.png) no-repeat center center;
+      background-size: cover;
+      animation: zoomInOut 10s infinite alternate;
+    }
+    @keyframes zoomInOut {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoom-in {
+      from { transform: scale(1.2); }
+      to { transform: scale(1); }
+    }
+    .menu {
+      position: fixed;
+      top: 50%;
+      right: 50px;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+    .menu a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+    .menu a:hover {
+      color: #b80257;
+    }
+    .menu .icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    #home .title {
+      animation: drop-from-top 1s ease forwards;
+    }
+    #about .title {
+      animation: drop-from-top 1s ease forwards;
+    }
+    #contact .title {
+      animation: drop-from-top 1s ease forwards;
+    }
+    #code .title {
+      animation: drop-from-top 1s ease forwards;
+    }
+    @keyframes drop-from-top {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .15em;
+      animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+    .contact-form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center; /* Center the form */
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .contact-form textarea {
+      height: 150px;
+    }
+    .contact-form input[type="submit"] {
+      background: #b80257;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .fade-in-out-text {
+      display: none;
+      animation: fadeInOut 3s infinite;
+    }
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #b80257;
+    }
+    .code-container {
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 400px;
+    }
+    .code-line {
+      animation: coding 2s infinite alternate;
+    }
+    @keyframes coding {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+  </style>
+  </head>
+  <body>
+  <nav class="menu">
+    <a href="#home"><i class="fas fa-home icon"></i></a>
+    <a href="#about"><i class="fas fa-info-circle icon"></i></a>
+    <a href="#contact"><i class="fas fa-envelope icon"></i></a>
+    <a href="#code"><i class="fas fa-code icon"></i></a>
+  </nav>
+  <section id="home" class="section">
+    <div class="background-image"></div>
+    <div class="title">
+      <div class="typewriter" style="width: 600px; margin: 0 auto;">
+        <h1>Welcome to SPLIT/LINE</h1>
+        <p>ROBLOX FREELANCE GAME DEVELOPMENT TEAM</p>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="section">
+    <div class="background-image"></div>
+    <div class="title">
+      <h1>About Us</h1>
+      <p class="fade-in-out-text">We are a passionate team developing ROBLOX games at a fast pace!</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="section">
+    <div class="background-image"></div>
+    <div class="title">
+      <h1>Contact Us</h1>
+      <div class="contact-form">
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name">
+          <input type="email" name="email" placeholder="Your Email">
+          <textarea name="message" placeholder="Your Message"></textarea>
+          <input type="submit" value="Send">
+        </form>
+      </div>
+    </div>
+  </section>
+  <section id="code" class="section">
+    <div class="background-image"></div>
+    <div class="title">
+      <h1>Code!</h1>
+      <div class="code-container">
+        <div class="code-line">local greeting = "Hello, World!"</div>
+        <div class="code-line">print(greeting)</div>
+        <div class="code-line">local function add(a, b)</div>
+        <div class="code-line">   return a + b</div>
+        <div class="code-line">end</div>
+        <div class="code-line">local result = add(3, 5)</div>
+        <div class="code-line">warn("Result:" .. result)</div>
+        <div class="code-line">-- This is a comment</div>
+        <div class="code-line">for i = 0,5 do </div>
+        <div class="code-line">   print("Iteration:", i)</div>
+        <div class="code-line">end</div>
+      </div>
+    </div>
+  </section>
+  <script>
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.scrollY;
+      let windowHeight = window.innerHeight;
+      let sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        let offsetTop = section.offsetTop;
+        let distanceFromTop = offsetTop - scrollTop;
+        let sectionHeight = section.clientHeight;
+        let sectionScrollProgress = distanceFromTop / windowHeight;
+        let backgroundImages = section.querySelectorAll('.background-image');
+        backgroundImages.forEach(function(image) {
+          image.style.transform = `translateY(${sectionScrollProgress * 50}px)`;
+        });
+      });
+    });
+    // Code for fade-in/fade-out text in About page
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeText = document.querySelector('.fade-in-out-text');
+      if (fadeText) {
+        fadeText.style.display = 'block';
+      }
+    });
+  </script>
+  </body>
+  
+  
