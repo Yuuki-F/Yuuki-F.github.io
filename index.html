@@ -36,7 +36,7 @@
       animation: zoomInOut 10s infinite alternate;
     }
     #portfolio {
-      background: url(images/OBITO_FINISHEDD.png) no-repeat center center;
+      background: url(images/RobloxScreenShot20231212_192932312.png) no-repeat center center;
       background-size: cover;
       animation: zoomInOut 10s infinite alternate;
     }
@@ -61,7 +61,7 @@
     opacity: 1;  /* Fully visible */
 }
     #contact {
-      background: url(images/cec3ee31646231a25f6d726cbf4bc5c95b57c875.jpeg) no-repeat center center;
+      background: url(images/OBITO_FINISHEDD.png) no-repeat center center;
       background-size: cover;
       animation: zoomInOut 10s infinite alternate;
     }
@@ -71,9 +71,14 @@
       animation: zoomInOut 10s infinite alternate;
     }
 
-    .carousel-caption h5, .carousel-caption p {
-      color: #fff; /* Ensure text is visible on your images */
-    }
+    .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.75); /* Adjusts the transparency and color */
+    color: white; /* Ensures text color is white for contrast */
+    padding: 10px 20px; /* Adds padding around the text */
+    border-radius: 8px; /* Optionally rounds the corners */
+    text-align: center; /* Centers the text within the caption */
+    display: inline-block; /* Adjusts the background to wrap the content only */
+}
     @keyframes zoomInOut {
       0% { transform: scale(1); }
       50% { transform: scale(1.1); }
@@ -86,6 +91,12 @@
     @keyframes zoom-in {
       from { transform: scale(1.2); }
       to { transform: scale(1); }
+    }
+    @media (max-width: 768px) {
+        .carousel-caption {
+            font-size: 14px; /* Smaller text on smaller screens */
+            padding: 5px 10px; /* Less padding to fit smaller screens */
+        }
     }
     .menu {
       position: fixed;
@@ -231,7 +242,7 @@
     <div class="background-image"></div>
     <div class="title">
       <h1>About Us</h1>
-      <p class="fade-in-out-text">We are a passionate team developing ROBLOX games at a fast pace!</p>
+      <p class="fade-in-out-text">We are a passionate team developing ROBLOX games at a fast pace.<br>Prices are discussed, if you're interested please contact us in the form below!</p>
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -246,21 +257,28 @@
       <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/Denji2.jpg" class="d-block" alt="Yuuki">
+            <img src="images/YUKI_BG.png" class="d-block" alt="Yuuki">
             <div class="carousel-caption d-none d-md-block">
               <h5>Yuuki</h5>
-              <p>CEO, Programmer</p>
+              <p>Chief Executive Officer</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/cta.jpg" class="d-block" alt="Vlad">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Denis</h5>
+              <p>Chief Technology Officer</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="images/VladPFP.jpg" class="d-block" alt="Vlad">
             <div class="carousel-caption d-none d-md-block">
               <h5>Vlad</h5>
-              <p>COO, Builder</p>
+              <p>Chief Operations Officer</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/simopfp.gif" class="d-block" alt="Vlad">
+            <img src="images/images.png" class="d-block" alt="Vlad">
             <div class="carousel-caption d-none d-md-block">
               <h5>Simo</h5>
               <p>Animator</p>
@@ -271,6 +289,13 @@
             <div class="carousel-caption d-none d-md-block">
               <h5>Djole</h5>
               <p>Modeler</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/91862e63132d465aae192d7ac964a5dd.jpg" class="d-block" alt="Vlad">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nesa</h5>
+              <p>Chief Communications Officer</p>
             </div>
           </div>
           <!-- Add additional team members here, each in their own 'carousel-item' -->
